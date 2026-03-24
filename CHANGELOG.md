@@ -7,6 +7,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Updated the reusable Node CI workflow to `actions/checkout@v5` and `actions/setup-node@v5` so GitHub Actions uses
+  the Node 24-compatible action runtime while keeping the job's project runtime pinned to Node `20.19.0`.
+
 ## [0.1.0] - 2026-03-24
 
 ### Added
