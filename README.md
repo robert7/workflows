@@ -1,1 +1,1 @@
-# workflows
+# Shared GitHub CI workflows
