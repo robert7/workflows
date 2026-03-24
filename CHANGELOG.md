@@ -7,6 +7,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-03-24
+
 ### Added
 
 - Added a reusable Node.js CI workflow for the RemNote repositories so shared quality and coverage steps now live in
