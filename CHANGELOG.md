@@ -11,3 +11,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Added a reusable Node.js CI workflow for the RemNote repositories so shared quality and coverage steps now live in
   one public `robert7/workflows` workflow.
+
+### Fixed
+
+- Fixed reusable workflow validation on GitHub Actions by gating the Codecov upload step through `env.CODECOV_TOKEN`
+  instead of referencing `secrets.*` directly inside the step condition.

@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      CODECOV_TOKEN: ${{ secrets.codecov_token }}
 
     steps:
       - name: Checkout code
@@ -29,10 +31,10 @@ jobs:
         run: ./code-quality.sh
 
       - name: Upload coverage to Codecov
-        if: ${{ success() && secrets.codecov_token != '' }}
+        if: ${{ success() && env.CODECOV_TOKEN != '' }}
         uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.codecov_token }}
+          token: ${{ env.CODECOV_TOKEN }}
           files: ./coverage/lcov.info
           flags: unittests
           name: codecov-umbrella
