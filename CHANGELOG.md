@@ -7,6 +7,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-03-24
+
 ### Changed
 
 - Updated the reusable Node CI workflow to `actions/checkout@v5` and `actions/setup-node@v5` so GitHub Actions uses
