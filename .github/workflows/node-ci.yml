@@ -2,13 +2,29 @@ name: Reusable Node CI
 
 on:
   workflow_call:
+    inputs:
+      node_versions:
+        description: JSON array of Node.js versions to test
+        required: false
+        type: string
+        default: '["22.13.0", "24"]'
+      coverage_node_version:
+        description: Node.js version whose coverage report is uploaded
+        required: false
+        type: string
+        default: '24'
     secrets:
       codecov_token:
         required: false
 
 jobs:
   quality:
+    name: Node.js ${{ matrix.node-version }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ${{ fromJSON(inputs.node_versions) }}
     permissions:
       contents: read
     env:
@@ -21,7 +37,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '20.19.0'
+          node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
       - name: Install dependencies
@@ -31,7 +47,7 @@ jobs:
         run: ./code-quality.sh
 
       - name: Upload coverage to Codecov
-        if: ${{ success() && env.CODECOV_TOKEN != '' }}
+        if: ${{ success() && env.CODECOV_TOKEN != '' && matrix.node-version == inputs.coverage_node_version }}
         uses: codecov/codecov-action@v7
         with:
           token: ${{ env.CODECOV_TOKEN }}

@@ -7,6 +7,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Test reusable Node CI callers on a configurable version matrix that defaults to Node.js `22.13.0` and `24`, with a
+  single configurable matrix entry responsible for Codecov uploads.
+
 ## [0.2.0] - 2026-03-24
 
 ### Changed
