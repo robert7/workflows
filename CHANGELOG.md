@@ -7,6 +7,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-07-17
+
 ### Changed
 
 - Test reusable Node CI callers on a configurable version matrix that defaults to Node.js `22.13.0` and `24`, with a
